@@ -1,0 +1,14 @@
+
+
+<ul>
+<li [class.strikethrough]="employee.firstName == 'Kwame'"  *ngFor="let employee of employees" >
+    <cl-employee-detail [employee]="employee">
+
+    </cl-employee-detail>
+    
+</li>
+</ul>
+<p [ngClass]="{strikethrough : employees.length > 2}">Test styles</p>
+<input (value)="firstName">
+<input (value)="lastName">
+<button (click)=addEmployee()>Add Employee</button>

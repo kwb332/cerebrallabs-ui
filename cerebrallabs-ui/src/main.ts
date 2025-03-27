@@ -1,6 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { importProvidersFrom } from '@angular/core';
+import { AppModule } from './app/app.module'; // If you still have a module
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    // If you have an AppModule
+    importProvidersFrom(AppModule),
+
+    // Or other providers like routing, http, etc.
+    // provideRouter(routes),
+    // provideHttpClient(),
+    // provideAnimations()
+  ]
+}).catch(err => console.error(err));
